@@ -6,8 +6,9 @@ import { useState } from 'react'
 import CustomButton from '../../components/CustomButton'
 import { Link } from 'expo-router'
  
-const SignIn = () => {
+const SignUp = () => {
   const [form, setform] = useState({
+    username:'',
     email: '',
     password: ''
   })
@@ -25,15 +26,21 @@ const SignIn = () => {
         className='w-full justify-center min-h-[83vh] px-4 my-6' >
           <Image source={images.logo} resizeMode='contain' className="w-[115px] h-[35px]" />
 
-          <Text className="text-2xl text-white text-semibold mt-10 font-psemibold"> Log in to your account  </Text>
+          <Text className="text-2xl text-white text-semibold mt-10 font-psemibold"> Sign Up to explore  </Text>
 
+          <FormField
+            title ="Username"
+            value={form.username}
+            handleChangeText={(e) => setform({...form, username: e})}
+            otherStyles="mt-10"
+            keyboardType="email-address"
+          />
           <FormField
             title ="Email"
             value={form.email}
             handleChangeText={(e) => setform({...form, email: e})}
             otherStyles="mt-7"
-            keyboardType="email-address"
-          />
+           />
           <FormField
             title ="Password"
             value={form.password}
@@ -50,8 +57,8 @@ const SignIn = () => {
 
 
            <View className="justify-center pt-5 flex-row gap-2">
-            <Text className="text-ig text-gray-100 font-pregular">Don't have an account?</Text>
-            <Link href="/sign-up" className="text-lg font-psemibold text-secondary" >Sign Up</Link>
+            <Text className="text-ig text-gray-100 font-pregular">Already have an account? </Text>
+            <Link href="/sign-in" className="text-lg font-psemibold text-secondary" >Sign In</Link>
            </View>
 
     
@@ -64,4 +71,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn
+export default SignUp
