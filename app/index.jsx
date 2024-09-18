@@ -1,10 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import {Image, ScrollView, Text, View } from 'react-native';
-import { Link } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, Image, ScrollView } from "react-native";
+ import { SafeAreaView } from 'react-native-safe-area-context';
 import {  images } from '../constants';
 import CustomButton from '../components/CustomButton';
- 
+  
 export default function App() {
   return (
     <SafeAreaView className="bg-primary h-full"> 
@@ -34,7 +33,13 @@ export default function App() {
             Where creativity meets innovation: embark on a journy of limitless exploration with Aora
             </Text> 
 
-            <CustomButton/>
+            <CustomButton
+              title="Continue with Email"
+              handlePress={()=>{}}
+              containerStyles="w-full mt-7"
+            />
+
+        
 
  
         </View>
