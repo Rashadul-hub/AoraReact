@@ -38,13 +38,11 @@ export default function App() {
               handlePress={()=>{}}
               containerStyles="w-full mt-7"
             />
-
-        
-
- 
         </View>
 
       </ScrollView>
+
+      <StatusBar backgroundColor='#161622' status='light'/>
 
     </SafeAreaView>
   );
