@@ -1,0 +1,9 @@
+{
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "strings": "on"
+    },
+    "editor.quickSuggestionsDelay": 5,
+    "editor.wordBasedSuggestions": "allDocuments",
+    "editor.acceptSuggestionOnCommitCharacter": true
+}
