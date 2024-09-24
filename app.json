@@ -21,6 +21,7 @@
         "backgroundColor": "#ffffff"
       
       },
+      "permissions": ["android.permissions.INTERNET"],
       "package": "com.himu.aora"
     },
     "web": {
