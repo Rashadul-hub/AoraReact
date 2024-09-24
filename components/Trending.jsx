@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { icons } from "../constants";
-import { Video, ResizeMode } from "expo-av";
+import { Video, ResizeMode,Audio } from "expo-av";
+import { useEffect } from "react";
 
 
 
@@ -31,6 +32,17 @@ const zoomOut ={
 const TrandingItem = ({ activeItem, item }) => {
 
   const [play, setPlay] = useState(false);
+
+  // useEffect(() => {
+  //   // Set the audio mode when the component mounts
+  //   Audio.setAudioModeAsync({
+  //     allowsRecordingIOS: false,
+  //     staysActiveInBackground: true,
+  //     playsInSilentModeIOS: true, // Ensure audio plays even in silent mode
+  //     shouldDuckAndroid: false, // Prevent other audio apps from ducking
+  //     playThroughEarpieceAndroid: false,
+  //   });
+  // }, []);
 
   return (
     <Animatable.View
