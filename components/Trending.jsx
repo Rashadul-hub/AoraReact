@@ -59,7 +59,11 @@ const TrandingItem = ({ activeItem, item }) => {
         resizeMode={ResizeMode.CONTAIN}
         isLooping={false}
         onError={(error) => console.error("Video error:", error)}  // Logs the error
-        onPlaybackStatusUpdate={(status) => console.log("Playback Status:", status)}  // Track playback status
+        onPlaybackStatusUpdate={(status) =>{
+          if(status.didJustFinish){
+            setPlay(false);
+          }
+        }}  // Track playback status
       />
     ) : (
       <TouchableOpacity
