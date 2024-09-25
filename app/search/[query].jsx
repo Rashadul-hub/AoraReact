@@ -21,7 +21,7 @@ const Search = () => {
   }, [query])
   
 
-  console.log(posts);
+  console.log(query); // Code until here 
   
   return (
     <SafeAreaView className="bg-primary border-2   h-full">
