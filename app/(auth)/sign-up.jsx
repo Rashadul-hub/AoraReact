@@ -6,8 +6,11 @@ import { useState } from 'react'
 import CustomButton from '../../components/CustomButton'
 import { Link, router } from 'expo-router'
 import { createUser } from '../../lib/appwrite'
- 
+import { useGlobalContext } from '../../context/GlobalProvider'
+
 const SignUp = () => {
+  const { setUser, setIsLoggedIn } = useGlobalContext();
+
   const [form, setform] = useState({
     username:'',
     email: '',
@@ -18,16 +21,22 @@ const SignUp = () => {
 
   const submit = async () =>{
     if(form.username === "" || form.email === "" || form.password === ""){
-      Alert.alert('Error', 'Please fill in all the fields')
+      Alert.alert('Error', 'Please fill in all the fields');
+      return;
+    }
+
+     // Check password length before proceeding
+     if (form.password.length < 8 || form.password.length > 265) {
+      Alert.alert('Error', 'Password must be between 8 and 265 characters long');
+      return;
     }
 
     setIsSubmitting(true);
     try {
       const result = await createUser(form.email, form.password, form.username);
       
-      // set it to global state using context // 
       setUser(result);
-      setIsLogged(true);
+      setIsLoggedIn(true);
 
       router.replace('/home')
 
