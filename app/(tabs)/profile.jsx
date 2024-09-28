@@ -6,9 +6,9 @@ import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
 import { useState, useEffect } from 'react'
 import useAppwrite from '../../lib/useAppwrite'
-import { getAllPosts, getLatestPosts, getUserPosts, searchPosts } from '../../lib/appwrite'
+import { getAllPosts, getLatestPosts, getUserPosts, searchPosts, signOut } from '../../lib/appwrite'
 import VideoCard from '../../components/VideoCard'
-import { useLocalSearchParams } from 'expo-router'
+import { router, useLocalSearchParams } from 'expo-router'
 import { useGlobalContext } from '../../context/GlobalProvider'
 import { TouchableOpacity } from 'react-native'
 import InfoBox from '../../components/InfoBox'
@@ -21,8 +21,12 @@ const Profile = () => {
 
   const { data: posts, refetch } = useAppwrite(() => getUserPosts(user.$id));
 
-  const logout = () => {
+  const logout = async () => {
+      await signOut();
+      setUser(null)
+      setIsLoggedIn(false)
 
+      router.replace('/sign-in')
   }
  
   return (
@@ -65,6 +69,20 @@ const Profile = () => {
               titleStyles="text-lg"
              />
 
+            <View className="mt-5 flex-row">
+              <InfoBox
+                title={posts.length || 0}
+                subtitle="Posts"
+                containerStyles='mr-10'
+                titleStyles="text-xl"
+              />
+              <InfoBox
+                title="1.3k"
+                subtitle="Followers"
+                 titleStyles="text-xl"
+              />
+
+            </View>
 
 
 
