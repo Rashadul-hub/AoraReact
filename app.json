@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Production",
-    "slug": "production",
+    "name": "Aora App",
+    "slug": "aora-app",
     "scheme": "production",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/logo-small.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -14,14 +14,15 @@
     },
     "ios": {
       "supportsTablet": true
-      },
+    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      
       },
-      "permissions": ["android.permissions.INTERNET"],
+      "permissions": [
+        "android.permissions.INTERNET"
+      ],
       "package": "com.himu.aora"
     },
     "web": {
@@ -30,6 +31,12 @@
     "plugins": [
       "expo-router",
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "750042d2-d93c-4c91-9bed-56180b5a0e37"
+      }
+    },
+    "owner": "arefinhimu"
   }
 }
